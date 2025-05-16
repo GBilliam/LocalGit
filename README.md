@@ -37,7 +37,9 @@ The Pi 4 solves this. The Pi 3B+ also solves this, however, I already had a Pi 4
 The Pi 4 runs on a nano SD card of 32 GB so I cannot store a lot in the Pi. The solution is having an external drive. The one I used is an internal one of 256 GB connected to the 3.0 USB port using an adaptor. 
 
 When the Pi is rebooted, it looses then mount of the drive, so I had to edit the configuration file `/etc/fstab` adding this line:
-`UUID=uuid_number /media/Disk auto rw,user,auto 0 2`.
+`UUID=uuid_number /media/Disk auto rw,user,auto,nofail 0 2`.
+
+`nofail` allows the boot sequence to continue even if the drive fails to mount.
 
 ### Final setup
 
